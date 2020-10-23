@@ -31,12 +31,10 @@ class Song
   end
 
   def self.find_by_name(name)
-    binding.pry
     self.all.find {|song| song.name == name}
   end
 
   def self.find_or_create_by_name(name)
-    # binding.pry
     if self.find_by_name(name) == nil
       self.create_by_name(name)
     else
@@ -46,19 +44,23 @@ class Song
   end
 
   def self.alphabetical
-
+    self.all.sort_by {|song| song.name}
   end
 
-  def self.new_from_filename
-
+  def self.new_from_filename(filename)
+    new_song_ary = []
+    new_song_ary = filename.split(/[-.]/)
+    song = self.new
+    @artist_name = new_song_ary[0].strip
+    @name = new_song_ary[1].strip
   end
 
-  def self.create_from_filename
+  def self.create_from_filename(filename)
 
   end
 
   def self.destroy_all
-
+    self.all.clear
   end
 
 end
