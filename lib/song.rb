@@ -52,7 +52,11 @@ class Song
     new_song_ary = filename.split(/[-.]/)
     song = self.new_by_name(new_song_ary[1].strip)
     song.artist_name = new_song_ary[0].strip
+<<<<<<< HEAD
     return song
+=======
+    # @name = new_song_ary[1].strip
+>>>>>>> 32adf3f5bdb5ae8ba3e5d147837aacbc58499dd1
   end
 
   def self.create_from_filename(filename)
